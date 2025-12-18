@@ -11,7 +11,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123
     volumes:
-      - mariadb-/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
 
   redis:
     image: redis:alpine
@@ -24,6 +24,9 @@ services:
     working_dir: /home/frappe
     volumes:
       - ./docker:/workspace
+#    ports:
+#      - 8000:8000
+#      - 9000:9000
 
 volumes:
-  mariadb-
+  mariadb-data:
